@@ -1,0 +1,38 @@
+homepage:
+    path:      /
+    defaults:  { _controller: AppBundle:Post:list, page: 1 }
+    requirements:
+        page: '\d+'
+
+post_list:
+    path:      /{page}
+    defaults:  { _controller: AppBundle:Post:list, page: 1 }
+    requirements:
+        page: '\d+'
+
+post_detail:
+    path:      /post/{slug}
+    defaults:  { _controller: AppBundle:Post:detail}
+
+tag_detail:
+    path:      /tag/{slug}/{page}
+    defaults:  { _controller: AppBundle:Tag:detail, page: 1}
+    requirements:
+            page: '\d+'
+
+#ADMIN
+login:
+    path:      /login
+    defaults:  { _controller: AppBundle:Security:login }
+
+easy_admin_bundle:
+    resource: "@AppBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
+
+#API
+posts:
+    type:     rest
+    host:     localhost
+    prefix:   /api
+    resource: AppBundle\Controller\Api\PostsController
