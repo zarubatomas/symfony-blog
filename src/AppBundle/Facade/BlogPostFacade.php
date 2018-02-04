@@ -51,6 +51,7 @@ class BlogPostFacade
 
 
     /**
+     * Create unique slug from slug candidate
      * @param $slug
      * @return string
      */
@@ -96,6 +97,11 @@ class BlogPostFacade
 
 
 
+    /**
+     * Return array used in API calls
+     * @param BlogPost $post
+     * @return array
+     */
     public function convertPostToArray(BlogPost $post)
     {
         return [

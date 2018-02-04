@@ -4,10 +4,6 @@ namespace AppBundle\Blog;
 
 use Doctrine\ORM\EntityRepository;
 
-/**
- * SlugGenerator
- *
- */
 class SlugGenerator implements ISlugGenerator
 {
 

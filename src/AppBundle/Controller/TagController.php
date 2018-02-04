@@ -26,6 +26,11 @@ class TagController extends Controller
 
 
 
+    /**
+     * @param BlogPostFacade $blogPostFacade
+     * @param TagRepository $tagRepository
+     * @param PaginatorInterface $paginator
+     */
     public function __construct(
         BlogPostFacade $blogPostFacade,
         TagRepository $tagRepository,
@@ -38,6 +43,11 @@ class TagController extends Controller
 
 
 
+    /**
+     * @param $slug
+     * @param $page
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function detailAction($slug, $page)
     {
         $tag = $this->tagRepository->findOneBy(['slug' => $slug]);

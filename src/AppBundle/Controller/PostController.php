@@ -27,6 +27,11 @@ class PostController extends Controller
 
 
 
+    /**
+     * @param BlogPostFacade $blogPostFacade
+     * @param BlogPostRepository $blogPostRepository
+     * @param PaginatorInterface $paginator
+     */
     public function __construct(
         BlogPostFacade $blogPostFacade,
         BlogPostRepository $blogPostRepository,
@@ -39,6 +44,10 @@ class PostController extends Controller
 
 
 
+    /**
+     * @param int $page
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listAction($page = 1)
     {
 
@@ -54,6 +63,10 @@ class PostController extends Controller
 
 
 
+    /**
+     * @param $slug
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function detailAction($slug)
     {
         $post = $this->blogPostRepository->findOneBy(['slug' => $slug, 'active' => true]);

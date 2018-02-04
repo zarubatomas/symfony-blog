@@ -21,6 +21,10 @@ class TagFacade
 
 
 
+    /**
+     * @param TagRepository $tagRepository
+     * @param SlugGenerator $slugGenerator
+     */
     public function __construct(TagRepository $tagRepository, SlugGenerator $slugGenerator)
     {
         $this->tagRepository = $tagRepository;
@@ -29,6 +33,11 @@ class TagFacade
 
 
 
+    /**
+     * Create unique slug from slug candidate
+     * @param $slug
+     * @return string
+     */
     public function getSlugCandidate($slug)
     {
 

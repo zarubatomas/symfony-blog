@@ -99,7 +99,7 @@ easy_admin:
             class: AppBundle\Entity\BlogPost
             disabled_actions: ['delete']
             list:
-                fields: ['id', 'title', 'slug', 'created_at', 'active']
+                fields: ['id', 'title', 'slug', 'created_at', 'views', 'active']
             form:
                 fields:
                     - 'title'

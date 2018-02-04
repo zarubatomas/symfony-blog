@@ -18,10 +18,16 @@ class BlogPostQuery
      */
     private $entityManager;
 
+    /**
+     * @var array
+     */
     private $filter = [];
 
 
 
+    /**
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -45,6 +51,10 @@ class BlogPostQuery
 
 
 
+    /**
+     * @param Tag $tag
+     * @return $this
+     */
     public function byTag(Tag $tag)
     {
         $this->filter[] = function (QueryBuilder $qb) use ($tag) {
@@ -57,6 +67,10 @@ class BlogPostQuery
 
 
 
+    /**
+     * @param $order
+     * @return $this
+     */
     public function orderByLatest($order)
     {
         $this->filter[] = function (QueryBuilder $qb) use ($order) {
@@ -67,6 +81,10 @@ class BlogPostQuery
     }
 
 
+
+    /**
+     * @return QueryBuilder
+     */
     public function doCreateQuery()
     {
         return $this->doCreateBasicDql();
@@ -74,6 +92,9 @@ class BlogPostQuery
 
 
 
+    /**
+     * @return QueryBuilder
+     */
     protected function doCreateCountQuery()
     {
         return $this->doCreateBasicDql()->select('COUNT(p.id)');
@@ -81,6 +102,9 @@ class BlogPostQuery
 
 
 
+    /**
+     * @return QueryBuilder
+     */
     private function doCreateBasicDql()
     {
         $qb = $this->entityManager->createQueryBuilder()
