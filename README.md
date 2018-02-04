@@ -3,8 +3,9 @@ Symfony Test Blog
 
 Prerequisities
 --------------
-- installed PHP
+- installed LAMP
 - installed composer
+
 
 Instalation
 --------------
@@ -14,7 +15,7 @@ Run these commands:
 - bin/console doctrine:database:create
 - bin/console doctrine:migrations:migrate
 - bin/console doctrine:fixtures:load
-- make writeable /var folder
+- make writable /var folder
 
 
 Informations
